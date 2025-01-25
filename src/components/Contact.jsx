@@ -1,17 +1,18 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-const Contact = (handleFormSubmitData) => {
+const Contact = ({ handleFormSubmitData }) => {
   const { register, handleSubmit } = useForm();
 
-  const formData = (data) => handleFormSubmitData(data);
+  const formData = (data) => {
+    handleFormSubmitData(data);
+    
+  };
+
   return (
     <div>
       <div className="w-full h-full flex flex-col justify-center items-center gap-10">
         <h1 className="text-4xl font-semibold">Contact Me</h1>
         <form
-          onSubmit={() => {
-            return handleSubmit(formData);
-          }}
+          onSubmit={handleSubmit(formData)}
           action=""
           id="formid"
           className="flex flex-col justify-center items-center gap-10"
@@ -46,13 +47,12 @@ const Contact = (handleFormSubmitData) => {
             cols="50"
             id="formid"
           ></textarea>
-          <Link to="/Contact/ContactDetails">
-            <input
-              type="submit"
-              value="Submit"
-              className="bg-zinc-600 text-white px-3 py-1 rounded-md "
-            />
-          </Link>
+
+          <input
+            type="submit"
+            value="Submit"
+            className="bg-zinc-600 text-white px-3 py-1 rounded-md "
+          />
         </form>
       </div>
     </div>
