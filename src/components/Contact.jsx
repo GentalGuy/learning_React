@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
+import { Outlet, useNavigate } from "react-router-dom";
 const Contact = ({ handleFormSubmitData }) => {
   const { register, handleSubmit } = useForm();
-
+const navigate = useNavigate();
   const formData = (data) => {
     handleFormSubmitData(data);
+    navigate("/Contact/ContactDetails")
     
   };
 
@@ -49,11 +51,13 @@ const Contact = ({ handleFormSubmitData }) => {
           ></textarea>
 
           <input
+          
             type="submit"
             value="Submit"
             className="bg-zinc-600 text-white px-3 py-1 rounded-md "
           />
         </form>
+        <hr />
       </div>
     </div>
   );

@@ -11,7 +11,6 @@ const Routing = () => {
 
   const handleFormSubmitData = (data) => {
     setUsers([...users, data]);
-    console.log(data);
   };
   return (
     <Routes>
@@ -23,12 +22,11 @@ const Routing = () => {
         element={
           <Contact handleFormSubmitData={handleFormSubmitData}></Contact>
         }
-      >
-        <Route
-          path="/Contact/ContactDetails"
-          element={<ContactDetails users={users}></ContactDetails>}
-        ></Route>
-      </Route>
+      ></Route>
+      <Route
+        path="/Contact/ContactDetails"
+        element={<ContactDetails users={users}></ContactDetails>}
+      ></Route>
       <Route></Route>
     </Routes>
   );
